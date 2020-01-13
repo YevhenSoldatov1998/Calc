@@ -1,12 +1,32 @@
-.areas{
-  display: grid;
-  grid-template-columns: repeat(4, 60px);
-  grid-template-rows: repeat(4, 60px);
-  grid-gap: 5px;
+.wrap-calc {
+    display: flex;
+    justify-content: center;
+  padding-top: 80px;
+}
+
+article {
+    margin: 0 auto;
+}
+
+.areas {
+    display: grid;
+    grid-template-columns: repeat(4, 60px);
+    grid-template-rows: repeat(4, 60px);
+    grid-gap: 5px;
 
 }
-.area{
-  justify-self: center;
-  align-self: center;
-  border: 1px solid #827fff
+
+.area {
+    width: 100%;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #827fff;
+}
+
+.area:hover {
+    background-color: #827fff;
+    color: #ffffff;
 }

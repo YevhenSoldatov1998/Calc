@@ -1,7 +1,11 @@
 const GET_VALUE = 'GET_VALUE';
 const GET_RESULT = 'GET_RESULT';
+const CLEAN_INPUT = 'CLEAN_INPUT';
+
 export const getValue = value => ({type: GET_VALUE, value});
 export const getResult = () => ({type: GET_RESULT});
+export const cleanInput = () => ({type: CLEAN_INPUT});
+
 const initialState = {
     areas: [
         {id: 0, value: '1'},
@@ -21,18 +25,51 @@ const initialState = {
         {id: 14, value: '='},
         {id: 15, value: '/'},
     ],
-    screen: null,
-    result: null
+    screen: '',
+    result: null,
+    lastChild: null
 }
 const calcReducer = (state = initialState, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case GET_VALUE:
-            return {
-                screen: state.screen + action.value
-            }
-        case GET_RESULT:
-            return {
+            if (isNaN(action.value)) {
+                if(!state.lastChild){
+                    return {
+                        ...state,
+                        screen: state.screen + action.value,
+                        lastChild: action.value
+                    };
+                }
+                else{
+                    return {
+                        ...state,
 
+                        lastChild: action.value
+                    };
+                }
+
+            }
+            else{
+            debugger
+                return {
+                    ...state,
+                    screen: state.screen + action.value,
+                    lastChild: null
+                };
+            }
+
+        case GET_RESULT:
+            debugger
+            let strToMath = eval(state.screen);
+            return {
+                ...state,
+                result: strToMath
+            }
+        case CLEAN_INPUT:
+            return {
+                ...state,
+                screen: '',
+                result: null
             }
         default :
             return state

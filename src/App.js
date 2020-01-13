@@ -4,7 +4,7 @@ import CalculatorContainer from "./Calculator/CalculatorContainer";
 
 const App = (props) =>{
     return(
-        <div>
+        <div className={`wrap-calc`}>
             <CalculatorContainer />
         </div>
     )

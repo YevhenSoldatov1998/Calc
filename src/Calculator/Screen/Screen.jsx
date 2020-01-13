@@ -3,7 +3,8 @@ import React from 'react'
 const Screen = (props) => {
     return (
         <div>
-            screen
+            {props.result && <p>result: {props.result}</p>}
+            {props.screen}
         </div>
     )
 }
