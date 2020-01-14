@@ -2,12 +2,14 @@ import React from 'react'
 
 const Area = (props) => {
     const call_getValue = (val) => {
-        debugger
         if(val === '='){
             props.getResult()
         }
         else if(val === 'C'){
             props.cleanInput()
+        }
+        else if(val === '←'){
+            props.cleanLastValue();
         }
         else{
             props.getValue(val)

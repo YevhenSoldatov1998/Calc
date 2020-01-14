@@ -7,7 +7,7 @@ const Calculator = (props) => {
     return (
         <article>
             <Screen screen={props.data.screen} result={props.data.result}/>
-            <Areas cleanInput={props.cleanInput} getResult={props.getResult} getValue={props.getValue} areas={props.data.areas}/>
+            <Areas cleanLastValue={props.cleanLastValue} cleanInput={props.cleanInput} getResult={props.getResult} getValue={props.getValue} areas={props.data.areas}/>
         </article>
     )
 }

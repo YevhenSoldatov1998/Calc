@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import Calculator from "./Calculator";
-import {cleanInput, getResult, getValue} from "../redux/calcReducer";
+import {cleanInput, cleanLastValue, getResult, getValue} from "../redux/calcReducer";
 
 const mapStateToProps = (state) => {
     return {
@@ -10,6 +10,7 @@ const mapStateToProps = (state) => {
 const CalculatorContainer = connect(mapStateToProps, {
     getValue,
     getResult,
-    cleanInput
+    cleanInput,
+    cleanLastValue
 })(Calculator);
 export default CalculatorContainer
